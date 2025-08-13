@@ -1,0 +1,9 @@
+.library-grid {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.book-card {
+    color: blue;
+    font-size: 2rem;
+}

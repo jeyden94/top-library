@@ -20,3 +20,15 @@ addBookToLibrary("The Silmarillion", "J.R.R. Tolkien", "365", true);
 addBookToLibrary("Dune", "Frank Herbert", "617", true);
 addBookToLibrary("A Fire Upon The Deep", "Vernor Vinge", "432", true);
 
+const libraryGrid = document.querySelector(".library-grid")
+
+function displayLibrary() {
+    for (let book in myLibrary) {
+        var bookCard = document.createElement("div");
+
+        bookCard.classList.add("book-card");
+
+        bookCard.textContent += myLibrary[book].title
+        libraryGrid.appendChild(bookCard)
+    }
+}
