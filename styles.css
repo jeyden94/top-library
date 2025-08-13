@@ -1,9 +1,22 @@
 .library-grid {
     display: grid;
     grid-auto-flow: column;
+    border: 1px solid blue;
+    gap: 20px;
 }
 
 .book-card {
-    color: blue;
-    font-size: 2rem;
+    border: 1px solid green;
+}
+
+.book-title {
+    font-size: 1.5rem;
+}
+
+.book-author,
+.book-pages,
+.book-read,
+.book-id { 
+    font-size: 1rem;
+    margin-top: 4px;
 }

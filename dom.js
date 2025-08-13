@@ -24,11 +24,35 @@ const libraryGrid = document.querySelector(".library-grid")
 
 function displayLibrary() {
     for (let book in myLibrary) {
+
         var bookCard = document.createElement("div");
+        var bookId = document.createElement("div");
+        var bookTitle = document.createElement("div");
+        var bookAuthor = document.createElement("div");
+        var bookPages = document.createElement("div");
+        var bookRead = document.createElement("div");
+
 
         bookCard.classList.add("book-card");
+        bookId.classList.add("book-id");        
+        bookTitle.classList.add("book-title");
+        bookAuthor.classList.add("book-author");
+        bookPages.classList.add("book-pages");
+        bookRead.classList.add("book-read");                        
 
-        bookCard.textContent += myLibrary[book].title
-        libraryGrid.appendChild(bookCard)
+        libraryGrid.appendChild(bookCard);
+
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(bookPages);
+        bookCard.appendChild(bookRead);        
+        bookCard.appendChild(bookId);             
+
+        bookTitle.textContent += myLibrary[book].title;
+        bookAuthor.textContent += myLibrary[book].author;
+        bookPages.textContent += myLibrary[book].pages;
+        bookRead.textContent += myLibrary[book].read;        
+        bookId.textContent += myLibrary[book].id;
+
     }
 }
