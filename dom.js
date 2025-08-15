@@ -68,11 +68,10 @@ function deleteBookFromLibrary(e) {
     console.log(thisBookDataId)
     for (let book in myLibrary) {
         if (myLibrary[book].id === thisBookDataId) {
-            console.log("hi")
 
-            // if the id on the book at the id on the button you've clicked match
-            // remove the book from the array
-            // remove the card from the library grid entirely
+            var myDiv = document.querySelectorAll(`.book-card[data-id="${thisBookDataId}"]`)
+
+            myDiv[0].remove();
 
         }
     }
