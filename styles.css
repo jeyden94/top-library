@@ -1,7 +1,15 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(210, 210, 210);
+    margin: 20px;
+}
+
 header {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 8fr;
+    gap: 10px;
 }
 
 .new-book-btn {
@@ -17,7 +25,9 @@ header {
 }
 
 .book-card {
-    /* border: 1px solid green; */
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .book-title {
