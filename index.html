@@ -7,9 +7,37 @@
     <title>The Odin Project: Library</title>
 </head>
 <body>
-        
-    <div class="library-grid">
 
+    <div class="content-wrapper">
+        <header>
+            <h1>Library</h1><button class="new-book-btn">New Book</button>
+        </header>
+        <div class="form-wrapper">
+            <dialog>
+                <form action="" method="">
+                    <button type="button" class="close-book-form-btn">Close</button>
+                    <div>
+                        <label for="book_title">Book Title:</label>
+                        <input type="text" name="book_title" id="book_title">
+                    </div>
+                    <div>
+                        <label for="book_author">Book Author:</label>
+                        <input type="text" name="book_author" id="book_author">
+                    </div>
+                    <div>
+                        <label for="book_pages">Book Pages:</label>
+                        <input type="number" name="book_pages" id="book_pages">
+                    </div>
+                    <div>
+                        <label for="book_read">Have you read it?</label>
+                        <input type="checkbox" name="book_read" id="book_read">
+                    </div>                     
+                    <button type="button" class="submit-book-form-btn">Submit</button>                                       
+                </form>
+            </dialog>
+        </div>        
+        <div class="library-grid">
+        </div>
     </div>
     
     <script src="dom.js"></script>

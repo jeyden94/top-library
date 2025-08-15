@@ -1,4 +1,10 @@
+// Initialize Array & Library Grid //
+
 let myLibrary = [];
+
+const libraryGrid = document.querySelector(".library-grid");
+
+// Initialize Book Constructor // 
 
 function Book(title, author, pages, read) {
     if (!new.target) {
@@ -11,48 +17,162 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
+// Initialize addBook and deleteBook Functions //
+
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook)
+    myLibrary.push(newBook);
+
+    var bookCard = document.createElement("div");
+    var bookId = document.createElement("div");
+    var bookTitle = document.createElement("div");
+    var bookAuthor = document.createElement("div");
+    var bookPages = document.createElement("div");
+    var bookRead = document.createElement("div");
+
+    var bookDeleteButton = document.createElement("button")
+
+    bookCard.classList.add("book-card");
+    bookId.classList.add("book-id");
+    bookTitle.classList.add("book-title");
+    bookAuthor.classList.add("book-author");
+    bookPages.classList.add("book-pages");
+    bookRead.classList.add("book-read");
+    bookDeleteButton.classList.add("book-delete-btn");
+
+    libraryGrid.appendChild(bookCard);
+
+    bookCard.appendChild(bookTitle);
+    bookCard.appendChild(bookAuthor);
+    bookCard.appendChild(bookPages);
+    bookCard.appendChild(bookRead);
+    bookCard.appendChild(bookId);
+    bookCard.append(bookDeleteButton);
+
+    bookTitle.textContent = myLibrary[myLibrary.length - 1].title;
+    bookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
+    bookPages.textContent = myLibrary[myLibrary.length - 1].pages;
+    bookRead.textContent = myLibrary[myLibrary.length - 1].read;
+    bookId.textContent = myLibrary[myLibrary.length - 1].id;
+
+    bookDeleteButton.textContent = "Delete Book"
+
+    bookDeleteButton.dataset.id = myLibrary[myLibrary.length - 1].id;
+    bookCard.dataset.id = myLibrary[myLibrary.length - 1].id;
+
+    bookDeleteButton.addEventListener("mouseup", deleteBookFromLibrary)
 }
+
+function deleteBookFromLibrary(e) {
+    var thisBookDataId = e.target.getAttribute("data-id");
+    console.log(thisBookDataId)
+    for (let book in myLibrary) {
+        if (myLibrary[book].id === thisBookDataId) {
+            console.log("hi")
+
+            // if the id on the book at the id on the button you've clicked match
+            // remove the book from the array
+            // remove the card from the library grid entirely
+
+        }
+    }
+
+
+}
+
+const header = document.querySelector("header");
+
+// Form, Form Buttons, & Form Input //
+
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector(".new-book-btn")
+const closeButton = document.querySelector(".close-book-form-btn")
+const submitButton = document.querySelector(".submit-book-form-btn")
+
+// const form = document.querySelector("form");
+
+const inputBookTitle = document.getElementById("book_title");
+const inputBookAuthor = document.getElementById("book_author");
+const inputBookPages = document.getElementById("book_pages");
+const inputBookRead = document.getElementById("book_read");
+
+
+// Form Button Listeners //
+
+showButton.addEventListener("mouseup", openForm)
+closeButton.addEventListener("mouseup", closeForm)
+submitButton.addEventListener("mouseup", submitForm)
+
+// Form Inputs //
+
+function openForm() {
+    dialog.showModal();
+}
+
+function closeForm() {
+    dialog.close();
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    var inputBookTitleValue = inputBookTitle.value;
+    var inputBookAuthorValue = inputBookAuthor.value;
+    var inputBookPagesValue = inputBookPages.value;
+    var inputBookReadValue = inputBookRead.value;
+
+    if (inputBookReadValue === "on") {
+        inputBookReadValue = true;
+    } else { inputBookReadValue = false; }
+
+    console.log(inputBookTitleValue)
+    console.log(inputBookAuthorValue)
+    console.log(inputBookPagesValue)
+    console.log(inputBookReadValue)
+
+    addBookToLibrary(inputBookTitleValue, inputBookAuthorValue, inputBookPagesValue, inputBookReadValue);
+
+    dialog.close();
+}
+
+
+// Library Grid & Book Cards //
+
+
+// function displayLibrary() {
+
+//     for (let book in myLibrary) {
+
+//         var bookCard = document.createElement("div");
+//         var bookId = document.createElement("div");
+//         var bookTitle = document.createElement("div");
+//         var bookAuthor = document.createElement("div");
+//         var bookPages = document.createElement("div");
+//         var bookRead = document.createElement("div");
+
+//         bookCard.classList.add("book-card");
+//         bookId.classList.add("book-id");        
+//         bookTitle.classList.add("book-title");
+//         bookAuthor.classList.add("book-author");
+//         bookPages.classList.add("book-pages");
+//         bookRead.classList.add("book-read");                        
+
+//         libraryGrid.appendChild(bookCard);
+
+//         bookCard.appendChild(bookTitle);
+//         bookCard.appendChild(bookAuthor);
+//         bookCard.appendChild(bookPages);
+//         bookCard.appendChild(bookRead);        
+//         bookCard.appendChild(bookId);             
+
+//         bookTitle.textContent += myLibrary[book].title;
+//         bookAuthor.textContent += myLibrary[book].author;
+//         bookPages.textContent += myLibrary[book].pages;
+//         bookRead.textContent += myLibrary[book].read;        
+//         bookId.textContent += myLibrary[book].id;
+
+//     }
+// }
 
 addBookToLibrary("The Silmarillion", "J.R.R. Tolkien", "365", true);
 addBookToLibrary("Dune", "Frank Herbert", "617", true);
 addBookToLibrary("A Fire Upon The Deep", "Vernor Vinge", "432", true);
-
-const libraryGrid = document.querySelector(".library-grid")
-
-function displayLibrary() {
-    for (let book in myLibrary) {
-
-        var bookCard = document.createElement("div");
-        var bookId = document.createElement("div");
-        var bookTitle = document.createElement("div");
-        var bookAuthor = document.createElement("div");
-        var bookPages = document.createElement("div");
-        var bookRead = document.createElement("div");
-
-
-        bookCard.classList.add("book-card");
-        bookId.classList.add("book-id");        
-        bookTitle.classList.add("book-title");
-        bookAuthor.classList.add("book-author");
-        bookPages.classList.add("book-pages");
-        bookRead.classList.add("book-read");                        
-
-        libraryGrid.appendChild(bookCard);
-
-        bookCard.appendChild(bookTitle);
-        bookCard.appendChild(bookAuthor);
-        bookCard.appendChild(bookPages);
-        bookCard.appendChild(bookRead);        
-        bookCard.appendChild(bookId);             
-
-        bookTitle.textContent += myLibrary[book].title;
-        bookAuthor.textContent += myLibrary[book].author;
-        bookPages.textContent += myLibrary[book].pages;
-        bookRead.textContent += myLibrary[book].read;        
-        bookId.textContent += myLibrary[book].id;
-
-    }
-}
