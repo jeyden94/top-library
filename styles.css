@@ -2,42 +2,180 @@ body {
     height: 100vh;
     margin: 0;
     background-color: rgb(210, 210, 210);
-    margin: 20px;
+    margin: 0px;
+
+    color: rgb(0, 0, 0);
+    font-family: "JetBrains Mono",monospace;
+    background-color: white;
 }
 
 header {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr 8fr;
+    grid-template-columns: 1fr;
     gap: 10px;
+    height: 120px;
+    position: sticky;
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    justify-self: center;
+}
+
+nav {
+    width: 75vw;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 8fr;
+    justify-self: center;
+    gap: 40px;
+}
+
+nav h1 {
+    place-self: center;
+    font-size: 2rem;
+    color: white;
+}
+
+main {
+    z-index: 1;
+}
+
+img {
+    width: 100vw;
+    position: absolute;
+    z-index: 0;
+}
+
+.content-wrapper {
+    display: grid;
 }
 
 .new-book-btn {
-    height: 50%;
     place-self: center;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 42px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+.new-book-btn:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.new-book-btn:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.new-book-btn:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
 }
 
 .library-grid {
+    margin-top: 50px;
     display: grid;
     grid-auto-flow: column;
-    /* border: 1px solid blue; */
+    justify-self: center;
     gap: 20px;
+    width: 75vw;
+    grid-template-columns: 400px 400px 400px;
 }
 
 .book-card {
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
+    display: grid;
+    gap: 15px;
+    
+    background-image: radial-gradient(100% 100% at 100% 0, #000000 0, #1e1e1e 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px,rgba(0, 0, 0, 0.3) 0 7px 13px -3px,rgba(0, 0, 0, 0.5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    z-index: 2;
 }
 
 .book-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
 }
 
 .book-author,
 .book-pages,
 .book-read,
 .book-id { 
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 4px;
+    color: white;
+}
+
+.book-delete-btn {
+    place-self: start;
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 42px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+.book-delete-btn:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.book-delete-btn:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.book-delete-btn:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }

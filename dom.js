@@ -50,12 +50,12 @@ function addBookToLibrary(title, author, pages, read) {
 
     bookTitle.textContent = myLibrary[myLibrary.length - 1].title;
     bookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
-    bookPages.textContent = myLibrary[myLibrary.length - 1].pages;
+    bookPages.textContent = `Pages: ${myLibrary[myLibrary.length - 1].pages}`;
 
     if (myLibrary[myLibrary.length - 1].read === true) {
-        bookRead.textContent = "Read [checkbox emoji]";
+        bookRead.textContent = "Read It!";
     } else {
-        bookRead.textContent = "Not Read Yet [cross emoji]";
+        bookRead.textContent = "On My List";
     }
 
     bookDeleteButton.textContent = "Delete Book"
