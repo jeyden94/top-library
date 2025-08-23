@@ -24,12 +24,12 @@ header {
 }
 
 nav {
-    width: 75vw;
+    width: 20vw;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr 8fr;
+    grid-template-columns: 1fr 1fr;
     justify-self: center;
-    gap: 40px;
+    gap: 80px;
 }
 
 nav h1 {
